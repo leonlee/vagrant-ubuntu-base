@@ -40,7 +40,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  # config.vm.synced_folder "../data", "/vagrant_data"
+  config.vm.synced_folder "./www", "/var/www", type: "nfs"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -56,6 +56,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   # View the documentation for the provider you're using for more
   # information on available options.
+
+  # Provisioning with Shell file
+  config.vm.provision :shell, path: "base_enviroment.sh"
 
   # Enable provisioning with CFEngine. CFEngine Community packages are
   # automatically installed. For example, configure the host as a
