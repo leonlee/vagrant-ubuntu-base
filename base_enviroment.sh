@@ -1,3 +1,7 @@
+# timezone
+echo "Asia/Tokyo" > /etc/timezone
+dpkg-reconfigure -f noninteractive tzdata
+
 # update & upgrade
 apt-get update -y
 apt-get upgrade -y
